@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Cementerio de Girona</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link href="css/cementerio.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet'>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            mapboxgl.accessToken = 'pk.eyJ1IjoibW9uaWNhY29wYWphIiwiYSI6ImNqY2pnajYzczBnd3EzMnF0ZXlieDluejQifQ.TT0nSldoZYNZgYpYKWaW1A';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/monicacopaja/cjdum71jb5bqi2sqov42efw0o',
+                center: [2.8374, 41.9719],
+                zoom: 18.2,
+                pitch: 60
+            });
+            map.addControl(new mapboxgl.NavigationControl());
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Cementerio de Girona</h1>
+    <div id="map"></div>
+</body>
+
+</html>

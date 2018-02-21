@@ -1,0 +1,560 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Muli', sans-serif;
+    background-color: #262626;
+}
+
+/* CONTENEDORES PRINCIPALES */
+
+#container-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#161616, #202020, #161616);
+    box-shadow: 0 0 50px 5px #00000020;
+    min-width: 1000px;
+    z-index: 2;
+}
+
+#container-header {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 570px;
+    margin: 0;
+    padding: 0;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#container-intro {
+    position: absolute;
+    top: 640px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 560px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#container-main-top {
+    position: absolute;
+    top: 1200px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+    background-color: #262626;
+}
+
+#container-main-middle {
+    position: absolute;
+    top: 1800px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#container-main-bottom {
+    position: absolute;
+    top: 2400px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+#container-map,
+iframe {
+    position: absolute;
+    top: 3000px;
+    right: 0;
+    left: 0;
+    height: 640px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 3;
+}
+
+#container-footer {
+    position: absolute;
+    top: 3640px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    min-width: 1000px;
+    max-width: 2000px;
+    overflow: hidden;
+    z-index: 0;
+    background: linear-gradient(#262626, #161616);
+}
+
+#container-footer:hover {    
+    transform: translateX(-260px);
+    transition: 5s ease;
+}
+
+#container-promo {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 260px;
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+
+/* TEXTOS */
+
+h1 {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    letter-spacing: 5px;
+    color: #000000;
+    opacity: 0.7;
+}
+
+h1 span {
+    font-size: 30px;
+    position: relative;
+    bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    color: #222222;
+}
+
+h2,
+p span {
+    font-family: 'Raleway';
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+strong {
+    font-family: 'Raleway';
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.text-menu a {
+    float: left;
+    position: relative;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 22px -30px 0 60px;
+    color: #606060;
+    cursor: pointer;
+    cursor: hand;
+    text-decoration: none;
+}
+
+.text-menu:hover a:hover {
+    font-weight: bold;
+    color: #872725;
+    cursor: pointer;
+    cursor: hand;
+    transform: scale(1.1);
+    transition: .5s ease;
+}
+
+.text-intro {
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+.text-main-top {
+    position: absolute;
+    top: 100px;
+    bottom: 100px;
+    margin: 0 150px 0 150px;
+    padding: 80px 60px;
+    color: #ffffff;
+    background-color: #872725;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.text-main-top:hover {
+    color: #222222;
+    opacity: 1;
+    background-color: #ffffff;
+    transition: 0.5s ease;
+}
+
+.text-main-top:hover .icon-value {
+    filter: none;
+    transition: .5s ease;
+}
+
+.text-info span {
+    text-align: left;
+}
+
+.text-adress {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    letter-spacing: 0;
+}
+
+.text-main-middle {
+    position: absolute;
+    margin-top: 8%;
+    margin-left: 10%;
+    width: 30%;
+    text-align: center;
+}
+
+.text-restaurant {
+    margin: 60px 20px 40px 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.text-quote {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: #000000;
+}
+
+.text-footer {
+    float: left;
+    position: relative;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 22px 0 0 60px;
+    color: #606060;
+}
+
+.text-promo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    font-family: 'Raleway';
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 1px; 
+    background-color: #872725;
+    color: #000000;
+    opacity: 0.8;
+}
+
+.text-promo strong {   
+    font-family: 'Raleway';
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.text-terms {
+    position: absolute;
+    top: 122px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bolder;
+    letter-spacing: 1px;   
+    color: #000000;
+    opacity: 0.7;
+}
+
+/* CAJAS */
+
+.iconbox-menu {
+    position: relative;
+    top: 17px;
+    right: 45px;
+    float: right;
+    margin-right: 15px;
+}
+
+.iconbox-logo {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    text-align: center;
+}
+
+.imagebox-header {
+    text-align: center;
+    overflow: hidden;
+}
+
+.imagebox-intro {
+    float: right;
+    margin-top: 85px;
+    margin-right: 14%;
+}
+
+.imagebox-main-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+}
+
+.textbox-restaurant {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 20px;
+    width: calc(100% - 40px);
+    height: 260px;
+    background-color: #8d0303;
+    opacity: 0;
+}
+
+.textbox-restaurant:hover {
+    opacity: 1;
+    transition: .5s ease;
+    opacity: 0.7;
+}
+
+.imagebox-middle-superior {
+    float: right;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 300px;
+    ;
+    overflow: hidden;
+}
+
+.imagebox-middle-inferior {
+    float: right;
+    position: relative;
+    top: 300px;
+    left: 50%;
+    width: 25%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imagebox-bottom-superior {
+    float: left;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imagebox-bottom-inferior {
+    float: left;
+    position: relative;
+    top: 300px;
+    left: -50%;
+    width: 25%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.imagebox-bottom-right {
+    float: left;
+    position: relative;
+    top: -300px;
+    left: 50%;
+    width: 50%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.imagebox-middle-superior:hover .image-restaurant,
+.imagebox-middle-inferior:hover .image-restaurant,
+.imagebox-bottom-superior:hover .image-restaurant,
+.imagebox-bottom-inferior:hover .image-restaurant {
+    opacity: 0.5;
+    transition: .5s ease;
+}
+
+.textbox-quote {
+    position: absolute;
+    top: calc(50% - 70px);
+    left: calc(50% - 190px);
+    margin: 0;
+    width: 380px;
+    height: 140px;
+    text-align: center;
+    background-color: #ffffff;
+    opacity: 0.3;
+}
+
+.iconbox-footer {
+    position: relative;
+    top: 60px;
+    right: 45px;
+    float: right;
+    margin-right: 15px;
+}
+
+/* IMAGENES */
+
+.icon-menu,
+.icon-footer {
+    width: 36px;
+    filter: grayscale(100%) brightness(200%);
+    opacity: 0.5;
+}
+
+.icon-menu:hover,
+.icon-footer:hover {
+    width: 36px;
+    filter: grayscale(0) brightness(100%);
+    opacity: 0.6;
+    transform: scale(1.1);
+    transition: .5s ease;
+}
+
+.icon-footer:hover {
+    filter: grayscale(100%);
+    opacity: 1;
+}
+
+.image-header {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 875px;
+    overflow: hidden;
+}
+
+.icon-moreinfo {
+    width: 50px;
+}
+
+.icon-logo {
+    width: 100px;
+}
+
+.icon-logo:hover {
+    transform: scale(1.2) rotate(-360deg);
+    transition: 3s ease;
+}
+
+.image-intro {
+    width: 400px;
+}
+
+.image-main-top {
+    width: 100%;
+    min-width: 600px;
+}
+
+.icon-value {
+    height: 14px;
+    margin-top: 20px;
+    margin-right: 20px;
+    filter: invert(100%);
+}
+
+.image-recomendados {
+    width: 60%;
+}
+
+.image-restaurant {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 480px;
+    min-width: 100%;
+}
+
+.image-quote {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 110%;
+    min-height: 600px;
+}
+
+.icon-moreinfo {
+    width: 50px;
+}
+
+.icon-moreinfo:hover {
+    filter: brightness(100000%) grayscale(100%);
+    transition: .5s ease;
+}
+
+.icon-logo-footer {
+    width: 100px;
+    filter: grayscale(100%);
+    opacity: .5;
+}
+
+.image-promo {
+    width: 100%;
+}

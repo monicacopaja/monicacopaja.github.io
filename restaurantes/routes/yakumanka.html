@@ -1,0 +1,230 @@
+<html>
+
+<head>
+    <title>RUTA CEVICHE</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+    <link href="../css/map.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFEuavnnQ0FewZiYPAW5Eq9PSFs_ozaZQ&callback=initialize"></script>
+    <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobubble/src/infobubble.js"></script>
+    <script type="text/javascript">
+        var directionsDisplay,
+            directionsService,
+            map;
+        var mapCenter = { lat: 41.39, lng: 2.17 };
+
+        function initialize() {
+            var lineSymbol = {
+                path: google.maps.SymbolPath.CIRCLE,
+                fillOpacity: 0.8,
+                scale: 2.5
+            };
+            var directionsService = new google.maps.DirectionsService();
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                polylineOptions: {
+                    strokeColor: "#808080",
+                    strokeOpacity: 0,
+                    fillOpacity: 0,
+                    icons: [{
+                        icon: lineSymbol,
+                        offset: '0',
+                        repeat: '8px'
+                    }],
+                },
+                markerOptions: {
+                    visible: false
+                },
+            });
+            var mapOptions = {
+                zoom: 14,
+                center: new google.maps.LatLng(mapCenter.lat, mapCenter.lng),
+                disableDefaultUI: true,
+                backgroundColor: '#000000',
+                styles: [
+                    { elementType: 'geometry', stylers: [{ color: '#252525' }] },
+                    { elementType: 'labels.text.stroke', stylers: [{ visibility: 'off' }] },
+                    { elementType: 'labels.text.fill', stylers: [{ color: '#454545' }] },
+                    { featureType: 'poi', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#151515' }] },
+                    { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#101010' }] },
+                    { featureType: 'road', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'transit', elementType: 'geometry', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'transit', elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'transit', elementType: 'labels.text.fill', stylers: [{ visibility: 'off' }] },
+                    { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#000000' }] },
+                ]
+            };
+
+            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            var waypts = [{ location: { lat: 41.4063, lng: 2.1524 } }, //Toma Ya : 0
+            { location: { lat: 41.3821, lng: 2.1882 } }, //Toya : 1               
+            { location: { lat: 41.3789, lng: 2.1631 } }, //Mistura : 2
+            { location: { lat: 41.3930, lng: 2.1578 } }, //El Dorado : 3
+            { location: { lat: 41.3775, lng: 2.1262 } }, //La Chacana : 4
+            { location: { lat: 41.3904, lng: 2.1598 } }, //Yakumanka : 5
+            { location: { lat: 41.3719, lng: 2.1656 } }, //Lascar : 6
+            { location: { lat: 41.3863, lng: 2.1485 } }, //Panko : 7
+            { location: { lat: 41.3744, lng: 2.1545 } }, //Pakta : 8
+            { location: { lat: 41.3867, lng: 2.1968 } }, //Ají : 9
+
+            ];
+
+            var markers = [{ lat: 41.4063, lng: 2.1524, name: 'Toma Ya Street Food', adress: 'Nil Fabra, 34-36, Gràcia', img: '../images/map/tomaya.jpg', stars: '../icons/stars_5.png', price: '../icons/price_1.png', type: 'affordable', route: 'tomaya.html', link: '../pages/tomaya.html' },
+            { lat: 41.3821, lng: 2.1882, name: 'Toya by David Villanueva', adress: 'Balboa, 14, Barceloneta', img: '../images/map/toya.jpg', stars: '../icons/stars_5.png', price: '../icons/price_2.png', type: 'affordable', route: 'toya.html' },
+            { lat: 41.3789, lng: 2.1631, name: 'Mistura Barcelona', adress: 'Ronda de Sant Antoni, 1-3, San Antoni', img: '../images/map/mistura.jpg', stars: '../icons/stars_5.png', price: '../icons/price_1.png', type: 'affordable', route: 'mistura.html' },
+            { lat: 41.3930, lng: 2.1578, name: 'El Dorado Chicken', adress: 'Balmes, 122, Eixample', img: '../images/map/dorado.jpg', stars: '../icons/stars_5.png', price: '../icons/price_2.png', type: 'affordable', route: 'dorado.html' },
+            { lat: 41.3775, lng: 2.1262, name: 'La Chacana', adress: 'Portbou, 49, Sants-Badal', img: '../images/map/chacana.jpg', stars: '../icons/stars_5.png', price: '../icons/price_2.png', type: 'affordable', route: 'chacana.html' },
+            { lat: 41.3904, lng: 2.1598, name: 'Yakumanka', adress: 'València, 207, Eixample', img: '../images/map/yakumanka.jpg', stars: '../icons/stars_5.png', price: '../icons/price_3.png', type: 'expensive', route: 'yakumanka.html', link: '../pages/yakumanka.html' },
+            { lat: 41.3719, lng: 2.1656, name: 'Lascar BCN', adress: 'Roser, 74, Poble Sec', img: '../images/map/lascar.jpg', stars: '../icons/stars_5.png', price: '../icons/price_3.png', type: 'expensive', route: 'lascar.html' },
+            { lat: 41.3863, lng: 2.1485, name: 'Panko', adress: 'Viladomat, 249, Eixample', img: '../images/map/panko.jpg', stars: '../icons/stars_5.png', price: '../icons/price_3.png', type: 'expensive', route: 'panko.html' },
+            { lat: 41.3744, lng: 2.1545, name: 'Pakta', adress: 'Lleida, 5, Poble Sec', img: '../images/map/pakta.jpg', stars: '../icons/stars_5.png', price: '../icons/price_4.png', type: 'expensive', route: 'pakta.html' },
+            { lat: 41.3867, lng: 2.1968, name: 'Ají', adress: 'Marina, 19, Vila Olímpica', img: '../images/map/aji.jpg', stars: '../icons/stars_5.png', price: '../icons/price_3.png', type: 'expensive', route: 'aji.html' },
+            ];
+
+            crearMarker(markers[5]);
+
+            var routeButton = document.getElementById('routeButton');
+            map.controls[google.maps.ControlPosition.LEFT_TOP].push(routeButton);
+
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var coords = new google.maps.LatLng(latitude, longitude);
+                    var content = '<p class="locationWindow">' + "Tu ubicación" + '</p>';
+                    var infoWindow = new google.maps.InfoWindow({ map: map });
+                    infoWindow.setPosition(coords);
+                    infoWindow.setContent(content);
+                    window.setTimeout(function () { infoWindow.close() }, 2000);
+                    var icon = {
+                        url: '../icons/location.png',
+                        scaledSize: new google.maps.Size(24, 30),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(12, 30)
+                    };
+                    var marker = new google.maps.Marker({
+                        position: coords,
+                        map: map,
+                        title: name,
+                        icon: icon
+                    });
+
+                    marker.addListener('click', function () {
+                        var infoWindow = new google.maps.InfoWindow({ map: map });
+                        infoWindow.setPosition(coords);
+                        infoWindow.setContent(content);
+                    });
+
+                    var createRoute = directionsService.route({
+                        origin: coords,
+                        destination: { lat: waypts[5].location.lat, lng: waypts[5].location.lng },
+                        travelMode: google.maps.TravelMode.WALKING
+                    }, function (response, status) {
+                        directionsDisplay.setDirections(response);
+                        directionsDisplay.setMap(map);
+                    });
+
+                    map.addListener('click', function () {
+                        infoWindow.close();
+                        map.setZoom(14);
+                        map.setCenter(mapCenter);
+                        directionsDisplay.setMap(null);
+                    });
+                });
+            }
+        }
+
+        function crearMarker(pinfo) {
+            var point = new google.maps.LatLng(pinfo.lat, pinfo.lng);
+            var name = pinfo.name;
+            var icons = {
+                affordable: {
+                    url: '../icons/affordable.png',
+                    scaledSize: new google.maps.Size(24, 30),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(12, 30)
+                },
+                expensive: {
+                    url: '../icons/expensive.png',
+                    scaledSize: new google.maps.Size(24, 30),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(12, 30)
+                },
+            };
+
+            var marker = new google.maps.Marker({
+                position: point,
+                map: map,
+                title: name,
+                icon: icons[pinfo.type]
+            });
+            var infoWindow = new InfoBubble({
+                map: map,
+                maxHeight: 260,
+                minWidth: 260,
+                shadowStyle: 0,
+                pixelOffset: new google.maps.Size(0, 35),
+                padding: 0,
+                borderRadius: 0,
+                arrowSize: 9,
+                borderWidth: 0,
+                borderColor: '#ffffff',
+                disableAutoPan: true,
+                hideCloseButton: true,
+                arrowPosition: 50,
+                arrowStyle: 0
+            });
+
+            var content = '<div id="infoW-container-value">' +
+                '<p class="img-box"><img class="rest-img" src="' + pinfo.img + '"/></p>' +
+                '<h3><a href="' + pinfo.link + '" target="_blank">' + pinfo.name + '</a></h3>' +
+                '<p class="adress-text">' + pinfo.adress + '</p>' +
+                '<p class="value-box"><img class="value-img" src="' + pinfo.stars + '"/></p>' +
+                '<p class="value-box"><img class="value-img" src="' + pinfo.price + '"/></p>' +
+                '<p class="route-box"><a href="' + pinfo.route + '" target="_self"><img class="route-img" src="../icons/route.png"/></a></p>' +
+                '<p class="moreinfo-box"><a href="' + pinfo.link + '" target="_blank"><img class="moreinfo-img" src="../icons/more_info.png"/></a></p>' +
+                '</div>'
+
+            var openListener = marker.addListener('mouseover', function () {
+                infoWindow.open(map, marker);
+                infoWindow.setContent(content);
+            });
+
+            var closeListener = marker.addListener('mouseout', function () {
+                infoWindow.close(map, marker);
+            });
+
+            marker.addListener('click', function () {
+                google.maps.event.addListener(openListener);
+                google.maps.event.removeListener(closeListener);
+                map.setZoom(16);
+                map.setCenter(marker.getPosition());
+            });
+
+            map.addListener('click', function () {
+                infoWindow.close();
+                map.setZoom(14);
+                map.setCenter(mapCenter);
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+</head>
+
+<body>
+    <div id="map-canvas"></div>
+
+    <div id="routeButton">
+        <a href="../map.html" target="_self">
+            <img class="back-icon" src="../icons/back.png" />
+        </a>
+    </div>
+</body>
+
+</html>

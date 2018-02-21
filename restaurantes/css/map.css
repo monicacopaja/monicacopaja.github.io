@@ -1,0 +1,262 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map-canvas {
+    height: 100%;
+    width: 100%;
+    overflow: visible;
+}
+
+#routeButton {   
+    margin-top: 60px;
+    margin-left: 60px;    
+    padding: 0;
+    height: 60px;
+    width: 60px;  
+}
+
+.route-icon, .back-icon {
+    height: 50px;
+    width: 50px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+.route-icon:hover {
+    cursor: pointer;
+    cursor: hand;
+    filter: grayscale(0);
+    transform: scale(1.4) rotate(-45deg);
+    opacity: 1;
+    transition: 1s ease;
+}
+
+.back-icon:hover {
+    cursor: pointer;
+    cursor: hand;
+    filter: grayscale(0);
+    transform: scale(1.4);
+    opacity: 1;
+    transition: 1s ease;
+}
+
+#legend {
+    position: absolute;    
+    top:0;    
+    background-color: rgba(30, 30, 30, 0.8);
+    margin-right: 0;
+    height: 100%;
+    width: 220px;
+    padding-left: 20px;
+    padding-right: 20px;    
+    text-align: left;
+    font-family: 'Muli', sans-serif;
+    z-index: 0; 
+}
+
+#legend:hover {
+    box-shadow: 0 0 100px 10px rgba(141, 3, 3, 0.5);    
+    transition: .5s ease;
+}
+
+#infoW-container-simple {
+    padding: 0;
+    margin: 0;
+    width: 260px;
+    height: 120px;
+    overflow: hidden;
+    font-family: 'Muli', sans-serif;
+}
+
+#infoW-container-value {
+    padding: 0;
+    margin: 0;
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+    font-family: 'Muli', sans-serif;   
+}
+
+a,
+.strong {
+    color: #872725;
+    text-decoration: none;    
+}
+ 
+a:hover {
+    color: #606060;
+    text-decoration: none;
+    transition: .5s ease;
+}
+
+.locationWindow {
+    text-align: center;    
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 15px;
+    color: #872725; 
+    font-family: 'Muli', sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 800; 
+    letter-spacing: 6px;
+    color: #000000;
+    font-size: 24px;
+    margin: 70px 10px 0 35px;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #000000;
+    font-size: 15px;
+    margin: 10px 10px 10px 0;
+}
+
+h3 {
+    color: #872725;
+    font-size: 18px;
+    margin: 0 15px;
+}
+
+p {
+    color: #606060;
+    font-size: 14px;
+    margin: 20px 10px 0 35px;
+}
+
+.precio-bajo {
+    position: relative;
+    top: 5px;
+}
+
+.precio-alto {
+    position: relative;
+    top: 210px;
+}
+
+.lista-bajo {
+    position: relative;
+    top: -40px;
+}
+
+.lista-bajo:hover,
+.lista-alto:hover {
+    color: #872725;
+    cursor: pointer;
+    cursor: hand;    
+    transition: .5s ease;    
+    text-shadow: -0.2px 0 #872725, 
+    0 0.2px #872725, 
+    0.2px 0 #872725, 
+    0 -0.2px #872725;
+}
+
+.lista-alto {
+    position: relative;
+    top: 25px;
+}
+
+#infoW-container-value h3 {
+    position: absolute;
+    top: 155px;
+}
+
+#infoW-container-simple h3 {
+    position: absolute;
+    top: 15px;
+}
+
+.adress-text {
+    color: #606060;
+    font-size: 11px;
+    margin: 0 15px;
+}
+
+#infoW-container-value .adress-text {
+    position: absolute;
+    top: 180px;
+}
+
+#infoW-container-simple .adress-text {
+    position: absolute;
+    top: 40px;
+}
+
+.img-box {
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#infoW-container-value .value-box {
+    position: relative;
+    top: 200px;
+    margin: 5px 15px;
+    padding: 0;
+}
+
+#infoW-container-simple .value-box {
+    position: relative;
+    top: 60px;
+    margin: 5px 15px;
+    padding: 0;
+}
+
+.rest-img {
+    width: 100%;
+}
+
+.value-img {
+    width: 100px;
+}
+
+.route-box {
+    position: absolute;
+    top: 185px;
+    left: 217px;
+    margin: 0;
+    padding: 0;
+}
+
+.moreinfo-box {
+    position: absolute;
+    top: 220px;
+    left: 215px;
+    margin: 0;
+    padding: 0;
+}
+
+.route-img,
+.moreinfo-img {
+    width: 25px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+.route-img:hover,
+.moreinfo-img:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    opacity: 1;
+    transition: .5s ease;
+    transition: .5s ease;
+}
+
+.rest-marker {
+    width: 24px;
+    height: 30px;
+    margin-right: 11px;
+}
