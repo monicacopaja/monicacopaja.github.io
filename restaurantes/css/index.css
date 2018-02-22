@@ -557,4 +557,5 @@ strong {
 
 .image-promo {
     width: 100%;
+    z-index: -2;
 }
