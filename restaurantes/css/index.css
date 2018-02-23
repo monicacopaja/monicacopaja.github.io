@@ -386,7 +386,6 @@ strong {
     left: 0;
     width: 25%;
     height: 300px;
-    ;
     overflow: hidden;
 }
 
@@ -557,4 +556,5 @@ strong {
 
 .image-promo {
     width: 100%;
+    z-index: -3;  
 }

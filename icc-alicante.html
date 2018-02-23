@@ -32,8 +32,6 @@
         var searchControl;
         var controlScale;
 
-
-
         var nameSector = ["Artes Escénicas", "Artes Visuales", "Diseño", "Medios", "Literatura", "Innovación y Tecnología", "Patrimonio Cultural"];
         var colorSector = ['#564299', '#591E55', '#540032', '#C02942', '#D95B43', '#FF8E64', '#ECD078'];
 
@@ -75,7 +73,7 @@
                 }
             }
 
-            iccPoints = new L.GeoJSON.AJAX('data/icc-alicante.geojson', {
+            var iccPoints = new L.GeoJSON.AJAX('data/icc-alicante.geojson', {
                 maxZoom: 19,
                 minZoom: 1,
                 onEachFeature: function (feature, layer) {
@@ -92,7 +90,7 @@
                         fillOpacity: 1
                     });
                 }
-            }).addTo(map);
+            });
 
 
             //HEATMAP 
@@ -101,12 +99,13 @@
             map.addLayer(heatMap);
 
 
-            //CLUSTERS
+            //CLUSTERS TODOS
             var markers = new L.markerClusterGroup({
                 showCoverageOnHover: false,
                 singleMarkerMode: true,
                 removeOutsideVisibleBounds: false,
             });
+
             var clusterData = L.geoJson(icc_data, {
                 onEachFeature: function (feature, layer) {
                     layer.bindPopup(feature.properties.SECTOR);
@@ -115,11 +114,133 @@
 
             markers.addLayer(clusterData);
 
+
+            //CLUSTERS ARTES ESCÉNICAS
+
+            var markersAesce = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorAesce(feature) {
+                if (feature.properties.SECTOR === "Artes Escénicas") return true
+            }
+
+            var clusterAesce = L.geoJson(icc_data, { filter: sectorAesce });
+
+            markersAesce.addLayer(clusterAesce);
+
+            //CLUSTERS ARTES VISUALES
+
+            var markersAvisual = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorAvisual(feature) {
+                if (feature.properties.SECTOR === "Artes Visuales") return true
+            }
+
+            var clusterAvisual = L.geoJson(icc_data, { filter: sectorAvisual });
+
+            markersAvisual.addLayer(clusterAvisual);
+
+            //CLUSTERS DISEÑO
+
+            var markersDiseno = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorDiseno(feature) {
+                if (feature.properties.SECTOR === "Diseño") return true
+            }
+
+            var clusterDiseno = L.geoJson(icc_data, { filter: sectorDiseno });
+
+            markersDiseno.addLayer(clusterDiseno);
+
+            //CLUSTERS MEDIOS
+
+            var markersMedios = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorMedios(feature) {
+                if (feature.properties.SECTOR === "Medios") return true
+            }
+
+            var clusterMedios = L.geoJson(icc_data, { filter: sectorMedios });
+
+            markersMedios.addLayer(clusterMedios);
+
+
+            //CLUSTERS LITERATURA
+
+            var markersLiteratura = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorLiteratura(feature) {
+                if (feature.properties.SECTOR === "Literatura") return true
+            }
+
+            var clusterLiteratura = L.geoJson(icc_data, { filter: sectorLiteratura });
+
+            markersLiteratura.addLayer(clusterLiteratura);
+
+            //CLUSTERS INNOVACIÓN Y TECNOLOGÍA
+
+            var markersInnotec = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorInnotec(feature) {
+                if (feature.properties.SECTOR === "Innovación y Tecnología") return true
+            }
+
+            var clusterInnotec = L.geoJson(icc_data, { filter: sectorInnotec });
+
+            markersInnotec.addLayer(clusterInnotec);
+
+            //CLUSTERS PATRIMONIO
+
+            var markersPatrimonio = new L.markerClusterGroup({
+                showCoverageOnHover: false,
+                singleMarkerMode: true,
+                removeOutsideVisibleBounds: false,
+            });
+
+            function sectorPatrimonio(feature) {
+                if (feature.properties.SECTOR === "Patrimonio Cultural") return true
+            }
+
+            var clusterPatrimonio = L.geoJson(icc_data, { filter: sectorPatrimonio });
+
+            markersPatrimonio.addLayer(clusterPatrimonio);
+
+
             //CONTROL CAPAS
             var overlayMaps = {
                 "Mapa de calor": heatMap,
-                "Clusters": markers,
-                "Base": map
+                "Clusters Total": markers,
+                "Clusters Artes Escénicas": markersAesce,
+                "Clusters Artes Visuales": markersAvisual,
+                "Clusters Diseño": markersDiseno,
+                "Clusters Medios": markersMedios,
+                "Clusters Literatura": markersLiteratura,
+                "Clusters Innovación y Tecnología": markersInnotec,
+                "Clusters Patrimonio Cultural": markersPatrimonio,
+                "Mapa Base": map
             };
 
             var baseMaps = {
