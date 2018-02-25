@@ -22,14 +22,29 @@
                 pitch: 60
             });
             map.addControl(new mapboxgl.NavigationControl());
+            var nameSector = ["Altar", "Columbario", "Hipogeo", "Nicho", "Panteón", "Tumba"];
+            var colorSector = ['#440174', '#940099', '#720333', '#4d0001', '#fe0b28', '#ff6164'];
+
+            //LEYENDA
+            createLegend();
+            function createLegend() {
+                for (i = 0; i < nameSector.length; i++) {
+                    jQuery('#legend').append(
+                        '<div><span style="background-color:' + colorSector[i] + ';width:15px;height:15px;margin: 10px 0 2px 0"></span>' +
+                        '<p>' + nameSector[i] + '</p></div>'
+                    );
+                }
+            }
         });
     </script>
-
 </head>
 
 <body>
     <h1>Cementerio de Girona</h1>
     <div id="map"></div>
+    <div id='legend' class='legend'>
+        <h2>Tipo de construcción</h2>
+    </div>
 </body>
 
 </html>
