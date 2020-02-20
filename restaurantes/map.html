@@ -7,8 +7,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link href="css/map.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli|Raleway:400,600,800,700,900" rel="stylesheet">
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFEuavnnQ0FewZiYPAW5Eq9PSFs_ozaZQ&callback=initialize"></script>
-    <script src="https://cdn.rawgit.com/googlemaps/v3-utility-library/master/infobubble/src/infobubble.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=quarterly&key=AIzaSyBFEuavnnQ0FewZiYPAW5Eq9PSFs_ozaZQ&callback=initialize"></script>   
+</script>
     <script type="text/javascript">
         var directionsDisplay,
             directionsService,
@@ -213,7 +213,7 @@
                 title: name,
                 icon: icons
             });
-            var infoWindow = new InfoBubble({
+            var infoWindow = new google.maps.InfoWindow({
                 map: map,
                 maxHeight: 260,
                 minWidth: 260,
@@ -288,7 +288,7 @@
                 title: name,
                 icon: icons
             });
-            var infoWindow = new InfoBubble({
+            var infoWindow = new google.maps.InfoWindow({
                 map: map,
                 maxHeight: 260,
                 minWidth: 260,
@@ -364,7 +364,7 @@
                 title: name,
                 icon: icons
             });
-            var infoWindow = new InfoBubble({
+            var infoWindow = new google.maps.InfoWindow({
                 map: map,
                 maxHeight: 260,
                 minWidth: 260,
