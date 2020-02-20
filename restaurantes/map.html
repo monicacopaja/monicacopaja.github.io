@@ -240,14 +240,14 @@
                 '<p class="moreinfo-box"><a href="' + pinfo.link + '" target="_blank"><img class="moreinfo-img" src="icons/more_info.png"/></a></p>' +
                 '</div>'
 
-            var openListener = marker.addListener('mouseover', function () {
+            var openListener = marker.addListener('click', function () {
                 infoWindow.open(map, marker);
                 infoWindow.setContent(content);
             });
 
-            var closeListener = marker.addListener('mouseout', function () {
+            var closeListener = marker.addListener('closeclick', function () {
                 infoWindow.close(map, marker);
-            });
+             });
 
             marker.addListener('click', function () {
                 google.maps.event.addListener(openListener);
@@ -315,12 +315,12 @@
                 '<p class="moreinfo-box"><a href="' + pinfo.link + '" target="_blank"><img class="moreinfo-img" src="icons/more_info.png"/></a></p>' +
                 '</div>'
 
-            var openListener = marker.addListener('mouseover', function () {
+            var openListener = marker.addListener('click', function () {
                 infoWindow.open(map, marker);
                 infoWindow.setContent(content);
             });
 
-            var closeListener = marker.addListener('mouseout', function () {
+            var closeListener = marker.addListener('closeclick', function () {
                 infoWindow.close(map, marker);
             });
 
@@ -381,7 +381,7 @@
                 arrowStyle: 0
             });
 
-            var openListener = marker.addListener('mouseover', function () {
+            var openListener = marker.addListener('click', function () {
                 infoWindow.open(map, marker);
                 infoWindow.setContent('<div id="infoW-container-simple">' +
                     '<h3>' + pinfo.name + '</h3>' +
@@ -391,21 +391,21 @@
                     '</div>');
             });
 
-            var closeListener = marker.addListener('mouseout', function () {
+            var closeListener = marker.addListener('closeclick', function () {
                 infoWindow.close(map, marker);
             });
 
             marker.addListener('click', function () {
                 google.maps.event.addListener(openListener);
                 google.maps.event.removeListener(closeListener);
-                map.setZoom(16);
-                map.setCenter(marker.getPosition());
+        //        map.setZoom(16);
+        //        map.setCenter(marker.getPosition());
             });
 
             map.addListener('click', function () {
                 infoWindow.close();
-                map.setZoom(14);
-                map.setCenter(mapCenter);
+         //       map.setZoom(14);
+         //       map.setCenter(mapCenter);
             });
 
         }
