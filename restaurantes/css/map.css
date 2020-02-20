@@ -199,6 +199,7 @@ p {
     top: 0;
     padding: 0;
     margin: 0;
+    left: 0;
 }
 
 #infoW-container-value .value-box {
@@ -225,16 +226,16 @@ p {
 
 .route-box {
     position: absolute;
-    top: 185px;
-    left: 217px;
+    top: 200px;
+    left: 232px;
     margin: 0;
     padding: 0;
 }
 
 .moreinfo-box {
     position: absolute;
-    top: 220px;
-    left: 215px;
+    top: 235px;
+    left: 232px;
     margin: 0;
     padding: 0;
 }
