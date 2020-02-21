@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/USODESUELO_0.js"></script>
+        <script src="data/PRECIODESUELO_1.js"></script>
+        <script src="data/DESPLAZAMIENTO_2.js"></script>
+        <script src="data/SOCIOECONMICOS_3.js"></script>
+        <script src="data/DEMOGRFICOS_4.js"></script>
+        <script src="data/NDICEGENTRIFICACIN_5.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:17, minZoom:12
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openweathermap.org/map/snow/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+            maxZoom: 17
+        });
+        basemap0.addTo(map);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function pop_USODESUELO_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.zUSO'] !== null ? Autolinker.link(String(feature.properties['IG.zUSO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_USODESUELO_0_0(feature) {
+            if (feature.properties['IG.zUSO'] >= 0.000000 && feature.properties['IG.zUSO'] <= 0.100000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.100000 && feature.properties['IG.zUSO'] <= 0.200000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.200000 && feature.properties['IG.zUSO'] <= 0.300000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.300000 && feature.properties['IG.zUSO'] <= 0.400000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.400000 && feature.properties['IG.zUSO'] <= 0.500000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.500000 && feature.properties['IG.zUSO'] <= 0.600000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.600000 && feature.properties['IG.zUSO'] <= 0.700000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.700000 && feature.properties['IG.zUSO'] <= 0.800000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.800000 && feature.properties['IG.zUSO'] <= 0.900000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.zUSO'] >= 0.900000 && feature.properties['IG.zUSO'] <= 1.000000 ) {
+                return {
+                pane: 'pane_USODESUELO_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_USODESUELO_0');
+        map.getPane('pane_USODESUELO_0').style.zIndex = 400;
+        map.getPane('pane_USODESUELO_0').style['mix-blend-mode'] = 'normal';
+        var layer_USODESUELO_0 = new L.geoJson(json_USODESUELO_0, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_USODESUELO_0',
+            onEachFeature: pop_USODESUELO_0,
+            style: style_USODESUELO_0_0,
+        });
+        bounds_group.addLayer(layer_USODESUELO_0);
+        function pop_PRECIODESUELO_1(feature, layer) {
+            var popupContent = '<table>\
+                   <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.zPRECIO'] !== null ? Autolinker.link(String(feature.properties['IG.zPRECIO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PRECIODESUELO_1_0(feature) {
+            if (feature.properties['IG.zPRECIO'] >= 0.000000 && feature.properties['IG.zPRECIO'] <= 0.100000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.100000 && feature.properties['IG.zPRECIO'] <= 0.200000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.200000 && feature.properties['IG.zPRECIO'] <= 0.300000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.300000 && feature.properties['IG.zPRECIO'] <= 0.400000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.400000 && feature.properties['IG.zPRECIO'] <= 0.500000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.500000 && feature.properties['IG.zPRECIO'] <= 0.600000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.600000 && feature.properties['IG.zPRECIO'] <= 0.700000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.700000 && feature.properties['IG.zPRECIO'] <= 0.800000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.800000 && feature.properties['IG.zPRECIO'] <= 0.900000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.zPRECIO'] >= 0.900000 && feature.properties['IG.zPRECIO'] <= 1.000000 ) {
+                return {
+                pane: 'pane_PRECIODESUELO_1',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_PRECIODESUELO_1');
+        map.getPane('pane_PRECIODESUELO_1').style.zIndex = 401;
+        map.getPane('pane_PRECIODESUELO_1').style['mix-blend-mode'] = 'normal';
+        var layer_PRECIODESUELO_1 = new L.geoJson(json_PRECIODESUELO_1, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_PRECIODESUELO_1',
+            onEachFeature: pop_PRECIODESUELO_1,
+            style: style_PRECIODESUELO_1_0,
+        });
+        bounds_group.addLayer(layer_PRECIODESUELO_1);
+        function pop_DESPLAZAMIENTO_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.zDESP'] !== null ? Autolinker.link(String(feature.properties['IG.zDESP'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DESPLAZAMIENTO_2_0(feature) {
+            if (feature.properties['IG.zDESP'] >= 0.000000 && feature.properties['IG.zDESP'] <= 0.100000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.100000 && feature.properties['IG.zDESP'] <= 0.200000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.200000 && feature.properties['IG.zDESP'] <= 0.300000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.300000 && feature.properties['IG.zDESP'] <= 0.400000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.400000 && feature.properties['IG.zDESP'] <= 0.500000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.500000 && feature.properties['IG.zDESP'] <= 0.600000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.600000 && feature.properties['IG.zDESP'] <= 0.700000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.700000 && feature.properties['IG.zDESP'] <= 0.800000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.800000 && feature.properties['IG.zDESP'] <= 0.900000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDESP'] >= 0.900000 && feature.properties['IG.zDESP'] <= 1.000000 ) {
+                return {
+                pane: 'pane_DESPLAZAMIENTO_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DESPLAZAMIENTO_2');
+        map.getPane('pane_DESPLAZAMIENTO_2').style.zIndex = 402;
+        map.getPane('pane_DESPLAZAMIENTO_2').style['mix-blend-mode'] = 'normal';
+        var layer_DESPLAZAMIENTO_2 = new L.geoJson(json_DESPLAZAMIENTO_2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DESPLAZAMIENTO_2',
+            onEachFeature: pop_DESPLAZAMIENTO_2,
+            style: style_DESPLAZAMIENTO_2_0,
+        });
+        bounds_group.addLayer(layer_DESPLAZAMIENTO_2);
+        function pop_SOCIOECONMICOS_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.zSOCIO'] !== null ? Autolinker.link(String(feature.properties['IG.zSOCIO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SOCIOECONMICOS_3_0(feature) {
+            if (feature.properties['IG.zSOCIO'] >= 0.000000 && feature.properties['IG.zSOCIO'] <= 0.100000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.100000 && feature.properties['IG.zSOCIO'] <= 0.200000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.200000 && feature.properties['IG.zSOCIO'] <= 0.300000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.300000 && feature.properties['IG.zSOCIO'] <= 0.400000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.400000 && feature.properties['IG.zSOCIO'] <= 0.500000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.500000 && feature.properties['IG.zSOCIO'] <= 0.600000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.600000 && feature.properties['IG.zSOCIO'] <= 0.700000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.700000 && feature.properties['IG.zSOCIO'] <= 0.800000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.800000 && feature.properties['IG.zSOCIO'] <= 0.900000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.zSOCIO'] >= 0.900000 && feature.properties['IG.zSOCIO'] <= 1.000000 ) {
+                return {
+                pane: 'pane_SOCIOECONMICOS_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_SOCIOECONMICOS_3');
+        map.getPane('pane_SOCIOECONMICOS_3').style.zIndex = 403;
+        map.getPane('pane_SOCIOECONMICOS_3').style['mix-blend-mode'] = 'normal';
+        var layer_SOCIOECONMICOS_3 = new L.geoJson(json_SOCIOECONMICOS_3, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_SOCIOECONMICOS_3',
+            onEachFeature: pop_SOCIOECONMICOS_3,
+            style: style_SOCIOECONMICOS_3_0,
+        });
+        bounds_group.addLayer(layer_SOCIOECONMICOS_3);
+        function pop_DEMOGRFICOS_4(feature, layer) {
+            var popupContent = '<table>\
+                   <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.zDEMO'] !== null ? Autolinker.link(String(feature.properties['IG.zDEMO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DEMOGRFICOS_4_0(feature) {
+            if (feature.properties['IG.zDEMO'] >= 0.000000 && feature.properties['IG.zDEMO'] <= 0.100000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.100000 && feature.properties['IG.zDEMO'] <= 0.200000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.200000 && feature.properties['IG.zDEMO'] <= 0.300000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.300000 && feature.properties['IG.zDEMO'] <= 0.400000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.400000 && feature.properties['IG.zDEMO'] <= 0.500000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.500000 && feature.properties['IG.zDEMO'] <= 0.600000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.600000 && feature.properties['IG.zDEMO'] <= 0.700000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.700000 && feature.properties['IG.zDEMO'] <= 0.800000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.800000 && feature.properties['IG.zDEMO'] <= 0.900000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.zDEMO'] >= 0.900000 && feature.properties['IG.zDEMO'] <= 1.000000 ) {
+                return {
+                pane: 'pane_DEMOGRFICOS_4',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DEMOGRFICOS_4');
+        map.getPane('pane_DEMOGRFICOS_4').style.zIndex = 404;
+        map.getPane('pane_DEMOGRFICOS_4').style['mix-blend-mode'] = 'normal';
+        var layer_DEMOGRFICOS_4 = new L.geoJson(json_DEMOGRFICOS_4, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_DEMOGRFICOS_4',
+            onEachFeature: pop_DEMOGRFICOS_4,
+            style: style_DEMOGRFICOS_4_0,
+        });
+        bounds_group.addLayer(layer_DEMOGRFICOS_4);
+        function pop_NDICEGENTRIFICACIN_5(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['N_Barri'] !== null ? Autolinker.link(String(feature.properties['N_Barri'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['IG.INDICE'] !== null ? Autolinker.link(String(feature.properties['IG.INDICE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_NDICEGENTRIFICACIN_5_0(feature) {
+            if (feature.properties['IG.INDICE'] >= 0.000000 && feature.properties['IG.INDICE'] <= 0.100000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,171,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.100000 && feature.properties['IG.INDICE'] <= 0.200000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,151,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.200000 && feature.properties['IG.INDICE'] <= 0.300000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,132,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.300000 && feature.properties['IG.INDICE'] <= 0.400000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,103,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.400000 && feature.properties['IG.INDICE'] <= 0.500000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,71,0,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.500000 && feature.properties['IG.INDICE'] <= 0.600000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,43,17,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.600000 && feature.properties['IG.INDICE'] <= 0.700000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(226,19,51,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.700000 && feature.properties['IG.INDICE'] <= 0.800000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(207,0,79,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.800000 && feature.properties['IG.INDICE'] <= 0.900000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(187,0,94,1.0)',
+            }
+            }
+            if (feature.properties['IG.INDICE'] >= 0.900000 && feature.properties['IG.INDICE'] <= 1.000000 ) {
+                return {
+                pane: 'pane_NDICEGENTRIFICACIN_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(168,0,109,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_NDICEGENTRIFICACIN_5');
+        map.getPane('pane_NDICEGENTRIFICACIN_5').style.zIndex = 405;
+        map.getPane('pane_NDICEGENTRIFICACIN_5').style['mix-blend-mode'] = 'normal';
+        var layer_NDICEGENTRIFICACIN_5 = new L.geoJson(json_NDICEGENTRIFICACIN_5, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_NDICEGENTRIFICACIN_5',
+            onEachFeature: pop_NDICEGENTRIFICACIN_5,
+            style: style_NDICEGENTRIFICACIN_5_0,
+        });
+        bounds_group.addLayer(layer_NDICEGENTRIFICACIN_5);
+        map.addLayer(layer_NDICEGENTRIFICACIN_5);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'ÍNDICE GENTRIFICACIÓN<br /><table><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0000100.png" /></td><td> 0.00 - 0.10 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0100201.png" /></td><td> 0.10 - 0.20 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0200302.png" /></td><td> 0.20 - 0.30 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0300403.png" /></td><td> 0.30 - 0.40 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0400504.png" /></td><td> 0.40 - 0.50 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0500605.png" /></td><td> 0.50 - 0.60 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0600706.png" /></td><td> 0.60 - 0.70 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0700807.png" /></td><td> 0.70 - 0.80 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0800908.png" /></td><td> 0.80 - 0.90 </td></tr><tr><td style="text-align: center;"><img src="legend/NDICEGENTRIFICACIN_5_0901009.png" /></td><td> 0.90 - 1.00 </td></tr></table>INDICADORES<br />': layer_NDICEGENTRIFICACIN_5,'DEMOGRÁFICOS<br />': layer_DEMOGRFICOS_4,'SOCIOECONÓMICOS<br />': layer_SOCIOECONMICOS_3,'DESPLAZAMIENTO<br />': layer_DESPLAZAMIENTO_2,'PRECIO DE SUELO<br />': layer_PRECIODESUELO_1,'USO DE SUELO<br />': layer_USODESUELO_0,}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
