@@ -178,18 +178,18 @@ p {
     top: 15px;
 }
 
-.adress-text {
+.address-text {
     color: #606060;
     font-size: 11px;
     margin: 0 15px;
 }
 
-#infoW-container-value .adress-text {
+#infoW-container-value .address-text {
     position: absolute;
     top: 180px;
 }
 
-#infoW-container-simple .adress-text {
+#infoW-container-simple .address-text {
     position: absolute;
     top: 40px;
 }
