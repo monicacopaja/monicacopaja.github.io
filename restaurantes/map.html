@@ -248,8 +248,8 @@
                 });
             });
 
-            var legend = document.getElementById('legend');
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+           /*  var legend = document.getElementById('legend');
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend); */
         }
 
         function bajo(pinfo) {
@@ -318,7 +318,7 @@
 
             var listaBajo = document.createElement('listaBajo');
             listaBajo.innerHTML = '<p class="lista-bajo">' + name + '</p>';
-            legend.appendChild(listaBajo);
+            // legend.appendChild(listaBajo);
             google.maps.event.addDomListener(listaBajo, 'click', function () {
                 map.setZoom(16);
                 map.setCenter(marker.getPosition());
@@ -393,7 +393,7 @@
 
             var listaAlto = document.createElement('listaAlto');
             listaAlto.innerHTML = '<p class="lista-alto">' + name + '</p>';
-            legend.appendChild(listaAlto);
+            // legend.appendChild(listaAlto);
             google.maps.event.addDomListener(listaAlto, 'click', function () {
                 map.setZoom(16);
                 map.setCenter(marker.getPosition());
@@ -476,7 +476,7 @@
         <img class="route-icon" src="icons/route.png" />
     </div>
 
-    <div id="legend">
+    <!-- <div id="legend">
         <h1>LA RUTA
         </h1>
         <h2 class="precio-bajo">
@@ -484,7 +484,7 @@
         <h2 class="precio-alto">
             <img class="rest-marker" src="icons/expensive.png" />PRECIO ALTO</h2>
     </div>
-
+ -->
 </body>
 
 </html>
